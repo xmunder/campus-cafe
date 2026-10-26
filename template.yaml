@@ -1,0 +1,192 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: HTTP API de Campus Café con servicios Catalog y Orders separados por responsabilidad.
+
+Parameters:
+  FrontendOrigin:
+    Type: String
+    Default: http://localhost:4173
+    Description: Origen exacto del navegador permitido por CORS de API Gateway.
+  CatalogTimeoutSeconds:
+    Type: Number
+    Default: 5
+    MinValue: 1
+    MaxValue: 5
+    Description: Plazo máximo de la solicitud de Orders a Catalog, inferior al tiempo máximo de Lambda.
+  CatalogApiBaseUrl:
+    Type: String
+    Default: https://invalid.invalid
+    Description: URL base de la API que Orders usa para consultar productos mediante API Gateway; asígnala a ApiBaseUrl después de crear la pila.
+  LambdaExecutionRoleName:
+    Type: String
+    Default: LabRole
+    Description: Nombre del rol de ejecución Lambda preaprovisionado en la cuenta del curso.
+  DemoRevision:
+    Type: String
+    Default: '1'
+    Description: Marca sin efecto funcional para verificar la persistencia de pedidos después de actualizar la configuración de Lambda.
+
+Globals:
+  Function:
+    Runtime: python3.14
+    Timeout: 20
+    MemorySize: 256
+    Architectures: [x86_64]
+    Environment:
+      Variables:
+        POWERTOOLS_SERVICE_NAME: campus-cafe
+
+Resources:
+  CampusCafeApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref FrontendOrigin
+        AllowHeaders:
+          - Content-Type
+          - Idempotency-Key
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        ExposeHeaders:
+          - Location
+        MaxAge: 600
+      AccessLogSettings:
+        DestinationArn: !GetAtt ApiAccessLogGroup.Arn
+        Format: '{"requestId":"$context.requestId","routeKey":"$context.routeKey","status":"$context.status","responseLength":"$context.responseLength","requestTime":"$context.requestTime"}'
+
+  ApiAccessLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/apigateway/${AWS::StackName}/access'
+      RetentionInDays: 14
+
+  CatalogTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: productId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: productId
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+
+  OrdersTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+
+  CatalogLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-catalog'
+      RetentionInDays: 14
+
+  OrdersLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${AWS::StackName}-orders'
+      RetentionInDays: 14
+
+  CatalogFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: python-uv
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-catalog'
+      CodeUri: src/
+      Handler: catalog.app.handler
+      Role: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${LambdaExecutionRoleName}'
+      Environment:
+        Variables:
+          CATALOG_TABLE: !Ref CatalogTable
+      Events:
+        ListProducts:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CampusCafeApi
+            Path: /products
+            Method: GET
+            PayloadFormatVersion: '2.0'
+        GetProduct:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CampusCafeApi
+            Path: /products/{productId}
+            Method: GET
+            PayloadFormatVersion: '2.0'
+
+  OrdersFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: python-uv
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-orders'
+      CodeUri: src/
+      Handler: orders.app.handler
+      Role: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${LambdaExecutionRoleName}'
+      Environment:
+        Variables:
+          ORDERS_TABLE: !Ref OrdersTable
+          CATALOG_API_URL: !Ref CatalogApiBaseUrl
+          CATALOG_TIMEOUT_SECONDS: !Ref CatalogTimeoutSeconds
+          DEMO_REVISION: !Ref DemoRevision
+      Events:
+        CreateOrder:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CampusCafeApi
+            Path: /orders
+            Method: POST
+            PayloadFormatVersion: '2.0'
+        GetOrder:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CampusCafeApi
+            Path: /orders/{orderId}
+            Method: GET
+            PayloadFormatVersion: '2.0'
+        CancelOrder:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CampusCafeApi
+            Path: /orders/{orderId}/cancel
+            Method: POST
+            PayloadFormatVersion: '2.0'
+
+Outputs:
+  ApiBaseUrl:
+    Description: URL base de la HTTP API de API Gateway.
+    Value: !Sub 'https://${CampusCafeApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}'
+  CatalogTableName:
+    Description: Identificador de la tabla Catalog para cargar datos y ejecutar verificaciones.
+    Value: !Ref CatalogTable
+  OrdersTableName:
+    Description: Identificador de la tabla Orders para verificaciones y limpieza.
+    Value: !Ref OrdersTable
+  CatalogFunctionName:
+    Value: !Ref CatalogFunction
+  OrdersFunctionName:
+    Value: !Ref OrdersFunction
+  LambdaExecutionRoleArn:
+    Description: ARN del rol de ejecución preaprovisionado que comparten ambas funciones en este entorno aislado.
+    Value: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${LambdaExecutionRoleName}'
+
