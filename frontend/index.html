@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17352b" />
+    <title>Campus Café</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Campus Café home"><span class="brand-mark">C</span> CAMPUS CAFÉ</a>
+      <span class="api-status"><span id="status-dot"></span><span id="status-text">Connecting…</span></span>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">MADE FOR YOUR STUDY BREAK</p>
+          <h1>A little pause.<br /><em>A lot of good.</em></h1>
+          <p class="hero-text">Coffee, something sweet, and a moment to reset. Pick your favorites and we’ll have your order ready.</p>
+          <a class="hero-link" href="#menu">Explore the menu <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a coffee cup" role="img">
+          <div class="sun"></div><div class="steam steam-one"></div><div class="steam steam-two"></div>
+          <div class="cup"><div class="cup-foam">✳</div></div><div class="saucer"></div>
+          <span class="art-note">TAKE<br />A BREATH</span>
+        </div>
+      </section>
+
+      <section class="shop-layout" id="menu">
+        <div class="menu-column">
+          <div class="section-heading">
+            <div><p class="eyebrow">THE GOOD STUFF</p><h2>Today's menu</h2></div>
+            <span id="product-count" class="muted"></span>
+          </div>
+          <div id="products" class="product-grid" aria-live="polite"></div>
+        </div>
+
+        <aside class="cart-card" aria-labelledby="cart-title">
+          <div class="card-title"><span class="cart-icon">＋</span><div><p class="eyebrow">YOUR PICKS</p><h2 id="cart-title">Your order</h2></div></div>
+          <div id="cart-items" class="cart-items"><p class="empty-note">Your next favorite is waiting.</p></div>
+          <div class="cart-total"><span>Estimated total</span><strong id="cart-total">$0.00</strong></div>
+          <p class="fine-print">Final total is calculated securely by the order service.</p>
+          <button id="submit-order" class="button button-primary" disabled>Place order <span aria-hidden="true">→</span></button>
+          <p id="order-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </aside>
+      </section>
+
+      <section class="orders-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Your recent orders</h2></div>
+        </div>
+        <form id="lookup-form" class="lookup-form">
+          <label for="order-id-input">Look up an order by ID</label>
+          <div class="lookup-controls"><input id="order-id-input" placeholder="Paste an order ID" autocomplete="off" /><button class="button button-dark" type="submit">Find order</button></div>
+        </form>
+        <div id="orders-list" class="orders-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer><span>Campus Café</span><span>Good things take a moment.</span></footer>
+    <script src="config.js"></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
+
