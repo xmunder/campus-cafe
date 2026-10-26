@@ -164,6 +164,8 @@ API Gateway, 2026-10-26 16:17:11.554 UTC:
 Orders Lambda, 2026-10-26 16:17:17.026 UTC:
 [INFO] 2026-10-26T16:17:17.026Z 338d9d30-9ca8-4190-b1d5-714e99a184d3 {"requestId":"F3B5QjjaIAMEJDA=","operation":"orders","method":"POST","path":"/orders","result":201,"durationMs":2398.13,"orderId":"315401f1-4ea5-4daa-9e3f-8fbb28dea079"}
 ```
+## Demostración
+https://github.com/user-attachments/assets/a6db28b5-ad0b-4a4b-a668-6d5f02036b7a
 
 ## Eliminar los recursos
 
