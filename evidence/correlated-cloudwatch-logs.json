@@ -1,0 +1,23 @@
+{
+  "source": "AWS CloudWatch Logs via aws logs filter-log-events",
+  "retrievedAtUtc": "2026-10-26T18:01:44Z",
+  "region": "us-east-1",
+  "requestId": "F3B5QjjaIAMEJDA=",
+  "orderId": "315401f1-4ea5-4daa-9e3f-8fbb28dea079",
+  "apiGatewayAccess": {
+    "logGroup": "/aws/apigateway/campus-cafe/access",
+    "logStreamName": "4rh29xv5jj_.default-2026-10-26-16-17",
+    "timestamp": 1793031431554,
+    "ingestionTime": 1793031476875,
+    "eventId": "39985937088042355150943111740206516747094806850367324160",
+    "message": "{\"requestId\":\"F3B5QjjaIAMEJDA=\",\"routeKey\":\"POST /orders\",\"status\":\"201\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:16:17:11 +0000\"}"
+  },
+  "ordersLambda": {
+    "logGroup": "/aws/lambda/campus-cafe-orders",
+    "logStreamName": "2026/10/26/[$LATEST]3add335be7b44542b7aa2a2d4867095c",
+    "timestamp": 1793031437026,
+    "ingestionTime": 1793031437906,
+    "eventId": "39985937210072032877302681523579564707427087584329728002",
+    "message": "[INFO]\t2026-10-26T16:17:17.026Z\t338d9d30-9ca8-4190-b1d5-714e99a184d3\t{\"requestId\":\"F3B5QjjaIAMEJDA=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":201,\"durationMs\":2398.13,\"orderId\":\"315401f1-4ea5-4daa-9e3f-8fbb28dea079\"}\n"
+  }
+}

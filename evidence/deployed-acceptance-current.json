@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "region": "us-east-1",
+  "apiUrl": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+  "menuRequestMs": 468.24,
+  "firstInvocationMs": 468.24,
+  "warmupOrderReadMs": [
+    114.16,
+    117.8,
+    120.29
+  ],
+  "sequentialOrderReadMs": [
+    120.27,
+    100.0,
+    101.26,
+    119.52,
+    118.7,
+    120.15,
+    100.28,
+    121.59,
+    98.06,
+    119.85,
+    123.9,
+    99.43,
+    117.96,
+    101.23,
+    141.24,
+    116.78,
+    120.1,
+    119.12,
+    120.68,
+    119.41
+  ],
+  "p95OrderReadMs": 123.9,
+  "p95TargetMs": 2000,
+  "p95TargetMet": true,
+  "concurrentRequestStatuses": [
+    201,
+    200,
+    200,
+    200,
+    200
+  ],
+  "concurrentOrderId": "02f40e39-401a-4248-b475-a7cd375ee705",
+  "persistedConcurrencyRecordsVerified": true,
+  "note": "La primera solicitud es una latencia observada. Confirma la inicializaci\u00f3n en los registros de Lambda antes de considerarla un arranque en fr\u00edo."
+}

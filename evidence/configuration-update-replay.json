@@ -1,0 +1,108 @@
+{
+  "source": "AWS CloudWatch Logs filter-log-events, DynamoDB GetItem ConsistentRead y CloudFormation describe-stacks",
+  "capturedAtUtc": "2026-10-26T18:10:49.0675488+00:00",
+  "region": "us-east-1",
+  "orderId": "5a570156-2c51-432b-bbe1-4535917f22c1",
+  "apiRequestIds": [
+    "F3CgqjfboAMEYSQ=",
+    "F3CqYgm8oAMEJaQ=",
+    "F3CrGgkJIAMEclg="
+  ],
+  "ordersLambdaEvents": [
+    {
+      "logStreamName": "2026/10/26/[$LATEST]b3211a86c1db4e53a1da199ca5166374",
+      "timestamp": 1793031689009,
+      "message": "[INFO]\t2026-10-26T16:21:29.009Z\t73060cbd-f425-4192-bc52-c6cb59fb6141\t{\"requestId\":\"F3CgqjfboAMEYSQ=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":201,\"durationMs\":2359.5,\"orderId\":\"5a570156-2c51-432b-bbe1-4535917f22c1\"}\n",
+      "ingestionTime": 1793031692079,
+      "eventId": "39985942829480710238644692904450520774800945638186614786"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ea883b8a4cf1405c9e7d150cd113860a",
+      "timestamp": 1793031750475,
+      "message": "[INFO]\t2026-10-26T16:22:30.475Z\t3cd96ca2-524a-4242-81a5-448c000acbfb\t{\"requestId\":\"F3CqYgm8oAMEJaQ=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":200,\"durationMs\":1344.0,\"orderId\":\"5a570156-2c51-432b-bbe1-4535917f22c1\"}\n",
+      "ingestionTime": 1793031752029,
+      "eventId": "39985944200218314611527974994560240385253719049555542018"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ea883b8a4cf1405c9e7d150cd113860a",
+      "timestamp": 1793031750612,
+      "message": "[INFO]\t2026-10-26T16:22:30.612Z\t0ac66ee4-7d29-4ab1-82cb-a85f7a818c66\t{\"requestId\":\"F3CrGgkJIAMEclg=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/5a570156-2c51-432b-bbe1-4535917f22c1\",\"result\":200,\"durationMs\":24.65,\"orderId\":\"5a570156-2c51-432b-bbe1-4535917f22c1\"}\n",
+      "ingestionTime": 1793031752029,
+      "eventId": "39985944203273516703726670364950633788606544575874859014"
+    }
+  ],
+  "apiGatewayAccessEvents": [
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-16-21",
+      "timestamp": 1793031683749,
+      "message": "{\"requestId\":\"F3CgqjfboAMEYSQ=\",\"routeKey\":\"POST /orders\",\"status\":\"201\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:16:21:23 +0000\"}",
+      "ingestionTime": 1793031708938,
+      "eventId": "39985942712178790494373615200353748493031832237522223104"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-16-22",
+      "timestamp": 1793031745965,
+      "message": "{\"requestId\":\"F3CqYgm8oAMEJaQ=\",\"routeKey\":\"POST /orders\",\"status\":\"200\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:16:22:25 +0000\"}",
+      "ingestionTime": 1793031799547,
+      "eventId": "39985944099641953766154864683679976176127476280261083136"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-16-22",
+      "timestamp": 1793031750565,
+      "message": "{\"requestId\":\"F3CrGgkJIAMEclg=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:16:22:30 +0000\"}",
+      "ingestionTime": 1793031796506,
+      "eventId": "39985944202225381679395731131067676165899001526220750848"
+    }
+  ],
+  "persistedOrder": {
+    "Item": {
+      "createdAt": {
+        "S": "2026-10-26T16:21:28Z"
+      },
+      "id": {
+        "S": "ORDER#5a570156-2c51-432b-bbe1-4535917f22c1"
+      },
+      "currency": {
+        "S": "USD"
+      },
+      "items": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "House Coffee"
+              },
+              "quantity": {
+                "N": "1"
+              },
+              "productId": {
+                "S": "coffee"
+              },
+              "unitPriceCents": {
+                "N": "350"
+              }
+            }
+          }
+        ]
+      },
+      "updatedAt": {
+        "S": "2026-10-26T16:21:28Z"
+      },
+      "totalCents": {
+        "N": "350"
+      },
+      "orderId": {
+        "S": "5a570156-2c51-432b-bbe1-4535917f22c1"
+      },
+      "entityType": {
+        "S": "ORDER"
+      },
+      "status": {
+        "S": "CREATED"
+      }
+    }
+  },
+  "stackStatus": "UPDATE_COMPLETE",
+  "stackUpdatedAt": "2026-10-26T11:24:04.177-05:00",
+  "demoRevision": "2"
+}

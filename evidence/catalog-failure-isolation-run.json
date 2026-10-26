@@ -1,0 +1,40 @@
+{
+  "source": "Ejecución real contra API desplegada; llamada AWS Lambda update-function-configuration temporal y lectura DynamoDB ConsistentRead",
+  "capturedAtUtc": "2026-10-26T18:12:32Z",
+  "region": "us-east-1",
+  "apiUrl": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+  "function": "campus-cafe-orders",
+  "originalCatalogApiUrl": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+  "temporaryCatalogApiUrl": "http://127.0.0.1:1",
+  "idempotencyKey": "evidence-failure-20261026T180834366Z",
+  "idempotencyKeySha256": "82ebdc526ebb51552522eef9d2e9e20976f9390412d881e47504d865c52777eb",
+  "requestBody": "{\"items\":[{\"productId\":\"coffee\",\"quantity\":1}]}",
+  "httpStatus": 503,
+  "response": {
+    "code": "CATALOG_UNAVAILABLE",
+    "message": "The menu service is temporarily unavailable.",
+    "requestId": "F3SOfjieIAMEJCQ="
+  },
+  "consistentReadIdempotencyRecordExists": false,
+  "consistentReadDynamoDbResponse": null,
+  "catalogApiUrlRestored": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+  "dynamodbReadCommand": "aws dynamodb get-item --table-name campus-cafe-OrdersTable-1VXL162A844VU --key '{\"id\":{\"S\":\"IDEMPOTENCY#82ebdc526ebb51552522eef9d2e9e20976f9390412d881e47504d865c52777eb\"}}' --consistent-read --region us-east-1 --output json",
+  "dynamodbConsistentRead": true,
+  "cloudWatchAccessEvent": {
+    "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-08",
+    "timestamp": 1793038121061,
+    "message": "{\"requestId\":\"F3SOfjieIAMEJCQ=\",\"routeKey\":\"POST /orders\",\"status\":\"503\",\"responseLength\":\"118\",\"requestTime\":\"26/Oct/2026:18:08:41 +0000\"}",
+    "ingestionTime": 1793038165670,
+    "eventId": "39986086269033465937936339491641450763015799455736791040"
+  },
+  "ordersLambdaErrorLogEvent": {
+    "logStreamName": "2026/10/26/[$LATEST]62f4229e284840459b48c6b872d2acd0",
+    "timestamp": 1793038126376,
+    "message": "[INFO]\t2026-10-26T18:08:46.359Z\t63a997ae-a0ce-4e8f-b284-68537d761a2a\t{\"requestId\":\"F3SOfjieIAMEJCQ=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":503,\"durationMs\":2261.32}\n",
+    "ingestionTime": 1793038129380,
+    "eventId": "39986086387561926668126601445031809130951137228868616194"
+  },
+  "dynamodbGetItemRawOutput": "",
+  "dynamodbGetItemExitCode": 0,
+  "idempotencyItemPresent": false
+}

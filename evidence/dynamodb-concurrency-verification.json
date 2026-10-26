@@ -1,0 +1,164 @@
+{
+  "source": "AWS DynamoDB GetItem and Scan; both with ConsistentRead=true",
+  "capturedAtUtc": "2026-10-26T18:09:57.5045309+00:00",
+  "region": "us-east-1",
+  "tableName": "campus-cafe-OrdersTable-1VXL162A844VU",
+  "orderId": "02f40e39-401a-4248-b475-a7cd375ee705",
+  "orderGetItem": {
+    "Item": {
+      "currency": {
+        "S": "USD"
+      },
+      "updatedAt": {
+        "S": "2026-10-26T18:07:02Z"
+      },
+      "items": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "House Coffee"
+              },
+              "quantity": {
+                "N": "2"
+              },
+              "productId": {
+                "S": "coffee"
+              },
+              "unitPriceCents": {
+                "N": "350"
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "S": "CREATED"
+      },
+      "entityType": {
+        "S": "ORDER"
+      },
+      "orderId": {
+        "S": "02f40e39-401a-4248-b475-a7cd375ee705"
+      },
+      "id": {
+        "S": "ORDER#02f40e39-401a-4248-b475-a7cd375ee705"
+      },
+      "createdAt": {
+        "S": "2026-10-26T18:07:02Z"
+      },
+      "totalCents": {
+        "N": "700"
+      }
+    }
+  },
+  "recordsWithMatchingOrderId": {
+    "Items": [
+      {
+        "currency": {
+          "S": "USD"
+        },
+        "updatedAt": {
+          "S": "2026-10-26T18:07:02Z"
+        },
+        "items": {
+          "L": [
+            {
+              "M": {
+                "name": {
+                  "S": "House Coffee"
+                },
+                "quantity": {
+                  "N": "2"
+                },
+                "productId": {
+                  "S": "coffee"
+                },
+                "unitPriceCents": {
+                  "N": "350"
+                }
+              }
+            }
+          ]
+        },
+        "status": {
+          "S": "CREATED"
+        },
+        "entityType": {
+          "S": "ORDER"
+        },
+        "orderId": {
+          "S": "02f40e39-401a-4248-b475-a7cd375ee705"
+        },
+        "id": {
+          "S": "ORDER#02f40e39-401a-4248-b475-a7cd375ee705"
+        },
+        "createdAt": {
+          "S": "2026-10-26T18:07:02Z"
+        },
+        "totalCents": {
+          "N": "700"
+        }
+      },
+      {
+        "id": {
+          "S": "IDEMPOTENCY#e7a2c57ae3e5e3fe8ff509b5dc5679f35d5e91ca7d4a201a5a7375b2d521d414"
+        },
+        "entityType": {
+          "S": "IDEMPOTENCY"
+        },
+        "fingerprint": {
+          "S": "2d0e77ebc4a480372a36c6b37f88f512bb5544ab1d6975ca0388fbc518b90bed"
+        },
+        "orderId": {
+          "S": "02f40e39-401a-4248-b475-a7cd375ee705"
+        },
+        "creationResponse": {
+          "M": {
+            "createdAt": {
+              "S": "2026-10-26T18:07:02Z"
+            },
+            "totalCents": {
+              "N": "700"
+            },
+            "orderId": {
+              "S": "02f40e39-401a-4248-b475-a7cd375ee705"
+            },
+            "currency": {
+              "S": "USD"
+            },
+            "items": {
+              "L": [
+                {
+                  "M": {
+                    "name": {
+                      "S": "House Coffee"
+                    },
+                    "quantity": {
+                      "N": "2"
+                    },
+                    "productId": {
+                      "S": "coffee"
+                    },
+                    "unitPriceCents": {
+                      "N": "350"
+                    }
+                  }
+                }
+              ]
+            },
+            "status": {
+              "S": "CREATED"
+            },
+            "updatedAt": {
+              "S": "2026-10-26T18:07:02Z"
+            }
+          }
+        }
+      }
+    ],
+    "Count": 2,
+    "ScannedCount": 18,
+    "ConsumedCapacity": null
+  }
+}

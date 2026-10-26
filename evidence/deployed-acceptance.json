@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "region": "us-east-1",
+  "apiUrl": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+  "menuRequestMs": 4569.22,
+  "firstInvocationMs": 4569.22,
+  "warmupOrderReadMs": [
+    103.47,
+    139.3,
+    117.4
+  ],
+  "sequentialOrderReadMs": [
+    140.02,
+    119.07,
+    120.16,
+    100.18,
+    119.97,
+    119.84,
+    140.37,
+    119.82,
+    139.83,
+    120.49,
+    101.16,
+    118.39,
+    121.63,
+    121.72,
+    116.94,
+    120.87,
+    119.2,
+    119.26,
+    120.89,
+    121.06
+  ],
+  "p95OrderReadMs": 140.02,
+  "p95TargetMs": 2000,
+  "p95TargetMet": true,
+  "concurrentRequestStatuses": [
+    201,
+    200,
+    200,
+    200,
+    200
+  ],
+  "concurrentOrderId": "0be88157-da8f-4881-9ec9-39dfb54f3cef",
+  "persistedConcurrencyRecordsVerified": true,
+  "note": "La primera solicitud es una latencia observada. Confirma la inicialización en los registros de Lambda antes de considerarla un arranque en frío.",
+  "configurationUpdateReplay": {
+    "demoRevision": {
+      "before": "1",
+      "after": "2"
+    },
+    "stackStatusAfterUpdate": "UPDATE_COMPLETE",
+    "firstCreateStatus": 201,
+    "replayStatusAfterUpdate": 200,
+    "orderIdBeforeAndAfter": "5a570156-2c51-432b-bbe1-4535917f22c1",
+    "retrievalStatusAfterUpdate": 200,
+    "replayMatchesPersistedOrder": true
+  },
+  "catalogFailureIsolation": {
+    "faultInjection": "Se configuró temporalmente CatalogApiBaseUrl como http://127.0.0.1:1",
+    "createOrderStatus": 503,
+    "errorCode": "CATALOG_UNAVAILABLE",
+    "consistentReadFoundIdempotencyRecord": false,
+    "catalogUrlRestored": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com"
+  },
+  "finalDeployment": {
+    "stackStatus": "UPDATE_COMPLETE",
+    "lambdaExecutionRole": "LabRole",
+    "catalogApiHealthy": true,
+    "catalogProductCount": 6,
+    "catalogApiBaseUrlRestored": true
+  }
+}

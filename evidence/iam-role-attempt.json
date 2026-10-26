@@ -1,0 +1,29 @@
+{
+  "account": "491644114303",
+  "region": "us-east-1",
+  "roleName": "CampusCafeCatalogRole",
+  "trustPrincipal": "lambda.amazonaws.com",
+  "permissionsPrepared": {
+    "dynamodb": [
+      "GetItem",
+      "Scan"
+    ],
+    "catalogTable": "campus-cafe-CatalogTable-Z424RV4530BX",
+    "cloudWatchLogs": [
+      "CreateLogStream",
+      "PutLogEvents"
+    ],
+    "logGroup": "/aws/lambda/campus-cafe-catalog"
+  },
+  "createAttemptedVia": [
+    "AWS CLI",
+    "consola IAM"
+  ],
+  "result": "AccessDenied",
+  "deniedAction": "iam:CreateRole",
+  "reason": "Ninguna política basada en identidad permite la acción iam:CreateRole.",
+  "roleExistsAfterAttempt": false,
+  "stackStatus": "UPDATE_COMPLETE",
+  "activeLambdaRole": "LabRole",
+  "consoleEvidence": "catalog-role-create-denied.png"
+}

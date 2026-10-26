@@ -1,0 +1,83 @@
+{
+  "source": "AWS CloudFormation describe-stacks, Lambda get-function-configuration y DynamoDB Scan Select=COUNT",
+  "capturedAtUtc": "2026-10-26T18:11:29.6599197+00:00",
+  "region": "us-east-1",
+  "stack": {
+    "stackName": "campus-cafe",
+    "status": "UPDATE_COMPLETE",
+    "createdAt": "2026-10-26T11:08:40.998-05:00",
+    "lastUpdatedAt": "2026-10-26T11:24:04.177-05:00",
+    "parameters": [
+      {
+        "ParameterKey": "CatalogTimeoutSeconds",
+        "ParameterValue": "5"
+      },
+      {
+        "ParameterKey": "DemoRevision",
+        "ParameterValue": "2"
+      },
+      {
+        "ParameterKey": "CatalogApiBaseUrl",
+        "ParameterValue": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com"
+      },
+      {
+        "ParameterKey": "LambdaExecutionRoleName",
+        "ParameterValue": "LabRole"
+      },
+      {
+        "ParameterKey": "FrontendOrigin",
+        "ParameterValue": "http://localhost:4173"
+      }
+    ],
+    "outputs": [
+      {
+        "OutputKey": "ApiBaseUrl",
+        "OutputValue": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com",
+        "Description": "API Gateway HTTP API base URL."
+      },
+      {
+        "OutputKey": "LambdaExecutionRoleArn",
+        "OutputValue": "arn:aws:iam::491644114303:role/LabRole",
+        "Description": "Pre-provisioned execution role shared by both functions in this sandbox."
+      },
+      {
+        "OutputKey": "CatalogTableName",
+        "OutputValue": "campus-cafe-CatalogTable-Z424RV4530BX",
+        "Description": "Catalog table identifier for seed and verification commands."
+      },
+      {
+        "OutputKey": "OrdersTableName",
+        "OutputValue": "campus-cafe-OrdersTable-1VXL162A844VU",
+        "Description": "Orders table identifier for verification and cleanup."
+      },
+      {
+        "OutputKey": "CatalogFunctionName",
+        "OutputValue": "campus-cafe-catalog"
+      },
+      {
+        "OutputKey": "OrdersFunctionName",
+        "OutputValue": "campus-cafe-orders"
+      }
+    ]
+  },
+  "ordersLambda": {
+    "functionName": "campus-cafe-orders",
+    "state": "Active",
+    "runtime": "python3.14",
+    "role": "arn:aws:iam::491644114303:role/LabRole",
+    "lastModified": "2026-10-26T13:08:51-05:00",
+    "environment": {
+      "POWERTOOLS_SERVICE_NAME": "campus-cafe",
+      "CATALOG_TIMEOUT_SECONDS": "5",
+      "ORDERS_TABLE": "campus-cafe-OrdersTable-1VXL162A844VU",
+      "DEMO_REVISION": "2",
+      "CATALOG_API_URL": "https://4rh29xv5jj.execute-api.us-east-1.amazonaws.com"
+    }
+  },
+  "catalogTable": {
+    "tableName": "campus-cafe-CatalogTable-Z424RV4530BX",
+    "consistentRead": true,
+    "scanCount": 6,
+    "scannedCount": 6
+  }
+}

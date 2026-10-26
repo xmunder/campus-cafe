@@ -1,0 +1,366 @@
+{
+  "source": "AWS CloudWatch Logs filter-log-events y DynamoDB GetItem ConsistentRead",
+  "capturedAtUtc": "2026-10-26T18:14:03.2289878+00:00",
+  "region": "us-east-1",
+  "orderId": "7234d404-af01-412f-9b36-ed52570c989f",
+  "ordersLambdaEvents": [
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ccc96378ac004ed384ba35ac9911c8b0",
+      "timestamp": 1793038020827,
+      "message": "[INFO]\t2026-10-26T18:07:00.827Z\t32963b34-6e5b-441f-b928-47c6d3fa674b\t{\"requestId\":\"F3R-xhPCoAMEJDw=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":201,\"durationMs\":294.38,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038029559,
+      "eventId": "39986084033740571708417859358402348006612418159272001537"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ccc96378ac004ed384ba35ac9911c8b0",
+      "timestamp": 1793038020943,
+      "message": "[INFO]\t2026-10-26T18:07:00.943Z\t97e2f45b-3e5d-456f-928d-b1d2eba4cd4f\t{\"requestId\":\"F3R-2glnIAMEJ3A=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders\",\"result\":200,\"durationMs\":8.88,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038029559,
+      "eventId": "39986084036327458151447411642820491326239628093965729797"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ccc96378ac004ed384ba35ac9911c8b0",
+      "timestamp": 1793038022023,
+      "message": "[INFO]\t2026-10-26T18:07:02.023Z\t325ab548-1e85-465e-aa73-6bb898dc0097\t{\"requestId\":\"F3R_AgAwoAMEcSg=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":12.19,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038029559,
+      "eventId": "39986084060412262965860484635679067060699858520424579097"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ccc96378ac004ed384ba35ac9911c8b0",
+      "timestamp": 1793038022162,
+      "message": "[INFO]\t2026-10-26T18:07:02.162Z\t397c8460-fbcb-45f2-b7ef-5a9252f260a6\t{\"requestId\":\"F3R_Cj0fIAMEc9g=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f/cancel\",\"result\":200,\"durationMs\":33.99,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038029559,
+      "eventId": "39986084063512066548456241252352531900597980769755856925"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]ccc96378ac004ed384ba35ac9911c8b0",
+      "timestamp": 1793038022283,
+      "message": "[INFO]\t2026-10-26T18:07:02.283Z\t267e6776-0a72-4163-a024-96dece10222d\t{\"requestId\":\"F3R_DhtCIAMEc0g=\",\"operation\":\"orders\",\"method\":\"POST\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f/cancel\",\"result\":200,\"durationMs\":19.16,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038029559,
+      "eventId": "39986084066210456717478446652478353811588432511979487265"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028168,
+      "message": "[INFO]\t2026-10-26T18:07:08.168Z\tba7b50cd-aaa9-44fc-9dcf-63bb3bbae0cb\t{\"requestId\":\"F3R_-iS9oAMEJCQ=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":9.67,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084197450342210831163842992594855052939239565033478"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028285,
+      "message": "[INFO]\t2026-10-26T18:07:08.285Z\t284c7e77-a6c3-4369-9041-78cef621946a\t{\"requestId\":\"F3R__iWZIAMEJPA=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":6.67,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084200059529399059246750552273892952797535764742154"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028407,
+      "message": "[INFO]\t2026-10-26T18:07:08.406Z\t87f06b98-68c3-46a6-af8e-92d7517bd6f2\t{\"requestId\":\"F3SAAhGHoAMEcgQ=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":16.95,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084202780220313279982773819631522215897639494352910"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028527,
+      "message": "[INFO]\t2026-10-26T18:07:08.527Z\ta7f51374-6348-4e54-bcbb-757a18ff3d86\t{\"requestId\":\"F3SABiu5oAMEcSw=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":13.7,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084205456309737103657550803917714933701020212002834"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028627,
+      "message": "[INFO]\t2026-10-26T18:07:08.627Z\t48053f27-bd7e-480c-a417-703d71f00c26\t{\"requestId\":\"F3SADh27oAMEJqA=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":5.67,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084207686384256956719864957489542198537170810044438"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028728,
+      "message": "[INFO]\t2026-10-26T18:07:08.728Z\t33b97777-b115-4db6-ac7f-7675adebd1a5\t{\"requestId\":\"F3SAEjUIIAMEckA=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":5.3,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084209938759522008312802252597087736021682914066458"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028847,
+      "message": "[INFO]\t2026-10-26T18:07:08.847Z\tc92e844f-a36e-468f-a7a7-3ee71ed57fb7\t{\"requestId\":\"F3SAFgMbIAMEcKg=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":5.34,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084212592548200633456956095347562181176702125735966"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038028967,
+      "message": "[INFO]\t2026-10-26T18:07:08.966Z\t2cc1f0f3-53d3-4910-bd47-2a0b91778750\t{\"requestId\":\"F3SAGizWoAMEclg=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":16.68,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084215268637624457131733079633754898980082843385890"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029087,
+      "message": "[INFO]\t2026-10-26T18:07:09.086Z\tca396234-6e38-41b2-bc70-381bcf074e58\t{\"requestId\":\"F3SAHjypoAMEJBA=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":12.94,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084217944727048280806510063919947616783463561035814"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029187,
+      "message": "[INFO]\t2026-10-26T18:07:09.187Z\t8fba2a67-a252-472f-879e-89bd077f13a2\t{\"requestId\":\"F3SAIgWAoAMEc6g=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":7.04,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084220174801568133868824217491774881619614159077418"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029309,
+      "message": "[INFO]\t2026-10-26T18:07:09.309Z\t0b5ef58e-b0db-484d-b53d-63e64f3a90d5\t{\"requestId\":\"F3SAJiTbIAMEcVw=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":17.98,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084222895492482354604847484849404144719717888688174"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029406,
+      "message": "[INFO]\t2026-10-26T18:07:09.406Z\t2cb6177d-8d88-438d-9e5f-da124861acd9\t{\"requestId\":\"F3SAKiPNoAMEJpA=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":6.71,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084225058664766612075292213814076591610783968788530"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029526,
+      "message": "[INFO]\t2026-10-26T18:07:09.526Z\t6277f9f4-a6cd-42fc-bd77-453c2b22a3f4\t{\"requestId\":\"F3SALgFZoAMEJ9w=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":16.04,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084227734754190435750069198100269309414164686438454"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029646,
+      "message": "[INFO]\t2026-10-26T18:07:09.646Z\t5d8328ed-4329-4934-95e2-d8db672c31f5\t{\"requestId\":\"F3SANgyTIAMEJUQ=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":10.07,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084230410843614259424846182386462027217545404088378"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029750,
+      "message": "[INFO]\t2026-10-26T18:07:09.750Z\tce0039b0-82bd-4f1e-a993-263f7593e2a4\t{\"requestId\":\"F3SAOhPvoAMEJiw=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":10.54,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084232730121114906609652902101162382647142026051646"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029866,
+      "message": "[INFO]\t2026-10-26T18:07:09.866Z\t839b1efd-f21e-4513-b5ae-9537f9a234a1\t{\"requestId\":\"F3SAPhAzIAMEcJg=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":11.97,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084235317007557936161937320244482009857076719779906"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]26609ca409d744eb95f6ff081d53e9e8",
+      "timestamp": 1793038029968,
+      "message": "[INFO]\t2026-10-26T18:07:09.968Z\t29c0e30a-05f2-43c5-9975-550e28269a95\t{\"requestId\":\"F3SAQgR_oAMEc9g=\",\"operation\":\"orders\",\"method\":\"GET\",\"path\":\"/orders/7234d404-af01-412f-9b36-ed52570c989f\",\"result\":200,\"durationMs\":5.53,\"orderId\":\"7234d404-af01-412f-9b36-ed52570c989f\"}\n",
+      "ingestionTime": 1793038031690,
+      "eventId": "39986084237591683568186285497756887745819989950329782342"
+    }
+  ],
+  "apiGatewayAccessEvents": [
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038020499,
+      "message": "{\"requestId\":\"F3R-xhPCoAMEJDw=\",\"routeKey\":\"POST /orders\",\"status\":\"201\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:18:07:00 +0000\"}",
+      "ingestionTime": 1793038070090,
+      "eventId": "39986084026425927283299815016977595689690561219918757888"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038020906,
+      "message": "{\"requestId\":\"F3R-2glnIAMEJ3A=\",\"routeKey\":\"POST /orders\",\"status\":\"200\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:18:07:00 +0000\"}",
+      "ingestionTime": 1793038059775,
+      "eventId": "39986084035502330579101778623112870170049225560555388928"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038021978,
+      "message": "{\"requestId\":\"F3R_AgAwoAMEcSg=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"262\",\"requestTime\":\"26/Oct/2026:18:07:01 +0000\"}",
+      "ingestionTime": 1793038050501,
+      "eventId": "39986084059408729431926606619627153435226400220091449344"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038022100,
+      "message": "{\"requestId\":\"F3R_Cj0fIAMEc9g=\",\"routeKey\":\"POST /orders/{orderId}/cancel\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:02 +0000\"}",
+      "ingestionTime": 1793038045992,
+      "eventId": "39986084062129420346147342637443412841202949138065129472"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038022241,
+      "message": "{\"requestId\":\"F3R_DhtCIAMEc0g=\",\"routeKey\":\"POST /orders/{orderId}/cancel\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:02 +0000\"}",
+      "ingestionTime": 1793038060734,
+      "eventId": "39986084065273825419140160518222037486175236535563649024"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028129,
+      "message": "{\"requestId\":\"F3R_-iS9oAMEJCQ=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038068401,
+      "eventId": "39986084196580613148088469584853442305200083204814012417"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028247,
+      "message": "{\"requestId\":\"F3R__iWZIAMEJPA=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038073355,
+      "eventId": "39986084199212101081515083121543611075972641803475091456"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028363,
+      "message": "{\"requestId\":\"F3SAAhGHoAMEcgQ=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038072433,
+      "eventId": "39986084201798987524544635404847230579416816104352448512"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028483,
+      "message": "{\"requestId\":\"F3SABiu5oAMEcSw=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038048553,
+      "eventId": "39986084204475076948368310152961965433484924133227298816"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028606,
+      "message": "{\"requestId\":\"F3SADh27oAMEJqA=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038059507,
+      "eventId": "39986084207218068607787576812613377807814979391578963969"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028703,
+      "message": "{\"requestId\":\"F3SAEjUIIAMEckA=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038056090,
+      "eventId": "39986084209381240892045047253211621438924775087827648512"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028804,
+      "message": "{\"requestId\":\"F3SAFgMbIAMEcKg=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038047171,
+      "eventId": "39986084211633616157096640179724704852055267586121400320"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038028923,
+      "message": "{\"requestId\":\"F3SAGizWoAMEclg=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:08 +0000\"}",
+      "ingestionTime": 1793038061932,
+      "eventId": "39986084214287404835721784351412346962281463984791879680"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029044,
+      "message": "{\"requestId\":\"F3SAHjypoAMEJBA=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038063685,
+      "eventId": "39986084216985795004743989753656891005546085704932589569"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029162,
+      "message": "{\"requestId\":\"F3SAIgWAoAMEc6g=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038065320,
+      "eventId": "39986084219617282938170603286334919597846783943014809600"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029266,
+      "message": "{\"requestId\":\"F3SAJiTbIAMEcVw=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038063761,
+      "eventId": "39986084221936560438817788091169733874743088882833752064"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029383,
+      "message": "{\"requestId\":\"F3SAKiPNoAMEJpA=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038057565,
+      "eventId": "39986084224545747627045870991238882577283967103693684736"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029484,
+      "message": "{\"requestId\":\"F3SALgFZoAMEJ9w=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038068885,
+      "eventId": "39986084226798122892097463942219232476865583238208946176"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029603,
+      "message": "{\"requestId\":\"F3SANgyTIAMEJUQ=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038048159,
+      "eventId": "39986084229451911570722608071006096987854928385403846656"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029726,
+      "message": "{\"requestId\":\"F3SAOhPvoAMEJiw=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038063472,
+      "eventId": "39986084232194903230141874735926923019942728545913077760"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029825,
+      "message": "{\"requestId\":\"F3SAPhAzIAMEcJg=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038074305,
+      "eventId": "39986084234402677004796406440035408673009506885929664512"
+    },
+    {
+      "logStreamName": "4rh29xv5jj_.default-2026-10-26-18-07",
+      "timestamp": 1793038029947,
+      "message": "{\"requestId\":\"F3SAQgR_oAMEc9g=\",\"routeKey\":\"GET /orders/{orderId}\",\"status\":\"200\",\"responseLength\":\"264\",\"requestTime\":\"26/Oct/2026:18:07:09 +0000\"}",
+      "ingestionTime": 1793038076083,
+      "eventId": "39986084237123367919017142465452355917433541833501114368"
+    }
+  ],
+  "persistedOrder": {
+    "Item": {
+      "status": {
+        "S": "CANCELLED"
+      },
+      "items": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "House Coffee"
+              },
+              "quantity": {
+                "N": "2"
+              },
+              "productId": {
+                "S": "coffee"
+              },
+              "unitPriceCents": {
+                "N": "350"
+              }
+            }
+          }
+        ]
+      },
+      "totalCents": {
+        "N": "700"
+      },
+      "orderId": {
+        "S": "7234d404-af01-412f-9b36-ed52570c989f"
+      },
+      "updatedAt": {
+        "S": "2026-10-26T18:07:02Z"
+      },
+      "currency": {
+        "S": "USD"
+      },
+      "entityType": {
+        "S": "ORDER"
+      },
+      "id": {
+        "S": "ORDER#7234d404-af01-412f-9b36-ed52570c989f"
+      },
+      "createdAt": {
+        "S": "2026-10-26T18:07:00Z"
+      }
+    }
+  }
+}

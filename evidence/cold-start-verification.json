@@ -1,0 +1,52 @@
+{
+  "source": "AWS CloudWatch Logs filter-log-events y archivo de salida de scripts/acceptance.py",
+  "capturedAtUtc": "2026-10-26T18:11:46.0250753+00:00",
+  "region": "us-east-1",
+  "apiRequestId": "F3B4ghICoAMEKdQ=",
+  "clientMeasurementMs": 4569.22,
+  "acceptanceRunP95Ms": 140.02,
+  "apiGatewayAccessEvent": {
+    "logStreamName": "4rh29xv5jj_.default-2026-10-26-16-17",
+    "timestamp": 1793031426735,
+    "message": "{\"requestId\":\"F3B4ghICoAMEKdQ=\",\"routeKey\":\"GET /products\",\"status\":\"200\",\"responseLength\":\"597\",\"requestTime\":\"26/Oct/2026:16:17:06 +0000\"}",
+    "ingestionTime": 1793031465324,
+    "eventId": "39985936980575064039224038807181651028647510826056810496"
+  },
+  "catalogLambdaEvents": [
+    {
+      "logStreamName": "2026/10/26/[$LATEST]516e509ec3a047a6b9ac585514fa1f84",
+      "timestamp": 1793031427132,
+      "message": "INIT_START Runtime Version: python:3.14.mainline.v75\tRuntime Version ARN: arn:aws:lambda:us-east-1::runtime:a80514a5081d762ddcf7613643fa0106781d9c6d290a1c3536b6290ceef969a8\n",
+      "ingestionTime": 1793031434874,
+      "eventId": "39985936989428459883040696157559718983956066461378871296"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]516e509ec3a047a6b9ac585514fa1f84",
+      "timestamp": 1793031429007,
+      "message": "START RequestId: cda7d467-e022-4ef7-9f8a-7e5c68d91251 Version: $LATEST\n",
+      "ingestionTime": 1793031434874,
+      "eventId": "39985937031242357130285614547939190745171744285092151297"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]516e509ec3a047a6b9ac585514fa1f84",
+      "timestamp": 1793031430954,
+      "message": "[INFO]\t2026-10-26T16:17:10.954Z\tcda7d467-e022-4ef7-9f8a-7e5c68d91251\t{\"requestId\":\"F3B4ghICoAMEKdQ=\",\"operation\":\"catalog\",\"method\":\"GET\",\"path\":\"/products\",\"result\":200,\"durationMs\":1340.27}\n",
+      "ingestionTime": 1793031434874,
+      "eventId": "39985937074661908031824737804509234222018104137236021250"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]516e509ec3a047a6b9ac585514fa1f84",
+      "timestamp": 1793031430957,
+      "message": "END RequestId: cda7d467-e022-4ef7-9f8a-7e5c68d91251\n",
+      "ingestionTime": 1793031434874,
+      "eventId": "39985937074728810267420329673933841376836049221753962499"
+    },
+    {
+      "logStreamName": "2026/10/26/[$LATEST]516e509ec3a047a6b9ac585514fa1f84",
+      "timestamp": 1793031430957,
+      "message": "REPORT RequestId: cda7d467-e022-4ef7-9f8a-7e5c68d91251\tDuration: 1949.35 ms\tBilled Duration: 3821 ms\tMemory Size: 256 MB\tMax Memory Used: 122 MB\tInit Duration: 1871.30 ms\t\n",
+      "ingestionTime": 1793031434874,
+      "eventId": "39985937074728810267420329673933841376836049221753962500"
+    }
+  ]
+}
