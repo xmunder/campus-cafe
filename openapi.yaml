@@ -1,0 +1,214 @@
+openapi: 3.0.3
+info:
+  title: Campus Café API
+  version: 1.0.0
+  description: API del menú y los pedidos para el taller serverless de Campus Café.
+servers:
+  - url: https://{apiId}.execute-api.{region}.amazonaws.com
+    variables:
+      apiId:
+        default: deployed-api-id
+      region:
+        default: us-east-1
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      summary: Listar productos del menú
+      responses:
+        '200':
+          description: Menú devuelto correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /products/{productId}:
+    get:
+      operationId: getProduct
+      summary: Obtener un producto del menú
+      parameters:
+        - $ref: '#/components/parameters/ProductId'
+      responses:
+        '200':
+          description: Producto devuelto correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /orders:
+    post:
+      operationId: createOrder
+      summary: Crear un pedido o repetir una solicitud anterior exitosa
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+      responses:
+        '201':
+          description: Pedido creado. Location apunta al recurso del pedido.
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri-reference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '200':
+          description: Se devuelve la respuesta original al repetir la misma clave y solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /orders/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Recuperar el estado actual y persistido del pedido
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+      responses:
+        '200':
+          description: Estado actual del pedido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /orders/{orderId}/cancel:
+    post:
+      operationId: cancelOrder
+      summary: Cancelar un pedido creado; las cancelaciones repetidas son idempotentes
+      parameters:
+        - $ref: '#/components/parameters/OrderId'
+      responses:
+        '200':
+          description: Pedido cancelado, incluso cuando se repite la cancelación.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    ProductId:
+      name: productId
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 64
+    OrderId:
+      name: orderId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Product:
+      type: object
+      required: [productId, name, priceCents, currency, available]
+      properties:
+        productId: { type: string }
+        name: { type: string }
+        priceCents: { type: integer, minimum: 0 }
+        currency: { type: string, enum: [USD] }
+        available: { type: boolean }
+    CreateOrderRequest:
+      type: object
+      additionalProperties: false
+      required: [items]
+      properties:
+        items:
+          type: array
+          minItems: 1
+          maxItems: 10
+          items:
+            type: object
+            additionalProperties: false
+            required: [productId, quantity]
+            properties:
+              productId: { type: string, minLength: 1, maxLength: 64 }
+              quantity: { type: integer, minimum: 1, maximum: 10 }
+    OrderItem:
+      type: object
+      required: [productId, name, quantity, unitPriceCents]
+      properties:
+        productId: { type: string }
+        name: { type: string }
+        quantity: { type: integer, minimum: 1, maximum: 10 }
+        unitPriceCents: { type: integer, minimum: 0 }
+    Order:
+      type: object
+      required: [orderId, status, items, totalCents, currency, createdAt, updatedAt]
+      properties:
+        orderId: { type: string, format: uuid }
+        status: { type: string, enum: [CREATED, CANCELLED] }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/OrderItem' }
+        totalCents: { type: integer, minimum: 0 }
+        currency: { type: string, enum: [USD] }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    Error:
+      type: object
+      required: [code, message, requestId]
+      properties:
+        code: { type: string }
+        message: { type: string }
+        requestId: { type: string }
+  responses:
+    BadRequest:
+      description: Solicitud no válida o falta la clave de idempotencia.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflict:
+      description: Conflicto con la clave de idempotencia o producto no disponible.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    NotFound:
+      description: No se encontró el recurso.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    ServiceUnavailable:
+      description: El almacenamiento o el servicio Catalog no están disponibles.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+

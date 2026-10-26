@@ -1,0 +1,18 @@
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+.aws-sam/
+.env
+.env.*
+!.env.example
+samconfig.toml
+*.pyc
+
+# Capturas de trabajo y video fuente; se conserva el MP4 final.
+evidence/*.webm
+evidence/demo-video-contact-sheet.jpg
+
+# Captura de IAM con el correo de la cuenta visible.
+evidence/catalog-role-create-denied.png
+

@@ -1,0 +1,32 @@
+[project]
+name = "campus-cafe"
+version = "0.1.0"
+description = "Aplicación serverless de pedidos de Campus Café"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+  "boto3>=1.40,<2",
+  "fastapi>=0.120,<1",
+  "httpx>=0.28,<1",
+  "mangum>=0.19,<1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.2,<2",
+  "ruff>=0.14,<1",
+  "uvicorn>=0.38,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
